@@ -148,10 +148,11 @@
 
   .guess-line{display:inline-block;border-bottom:1.5px solid #1a1917;min-width:80px;height:1.2em;vertical-align:bottom;margin-left:4px;}
 
+  /* UPDATED keyboard styles */
   .kbd-wrap{margin:18px 0 4px;}
-  .kbd-row{display:flex;gap:3px;margin-bottom:3px;justify-content:center;}
-  .key{width:24px;height:26px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:500;font-size:9px;background:#d3d6da;color:#1a1917;}
-  .key.wide{width:36px;}
+  .kbd-row{display:flex;gap:4px;margin-bottom:4px;justify-content:center;}
+  .key{width:34px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:500;font-size:11px;background:#d3d6da;color:#1a1917;}
+  .key.wide{width:50px;}
   .key.used-gray{background:#787c7e;color:#fff;}
   .key.used-yellow{background:#b59f3b;color:#fff;}
   .key.used-green{background:#538d4e;color:#fff;}
@@ -775,7 +776,7 @@ new Chart(document.getElementById('q9'),{type:'bar',data:{labels:corrLabels,data
   </div>
 </div>
 
-<!-- APPENDIX B — CORRECTED -->
+<!-- APPENDIX B -->
 <div class="page">
   <h2 class="section-title">Appendix B</h2>
   <span class="appendix-label" style="margin-bottom:20px;">Wordle Instruction Sheet</span>
@@ -784,95 +785,66 @@ new Chart(document.getElementById('q9'),{type:'bar',data:{labels:corrLabels,data
     <h2>How to Play Wordle</h2>
     <p><strong>The goal of the game is to guess the secret word within 6 attempts.</strong> Start with any five-letter English word that is found in a standard English dictionary. After each attempt, you will receive feedback based on which letters are in the secret word.</p>
     <p style="font-family:var(--sans);font-size:14px;font-weight:500;margin-bottom:12px;"><strong>Below is an example of how Wordle works:</strong></p>
-    <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:24px;">
 
-      <!-- QUICK: all gray -->
+    <!-- Example rows: consistent gap:10px, annotation text black (var(--tp)) -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+
       <div style="display:flex;align-items:center;gap:16px;">
         <div class="ex-row" style="margin:0;flex-shrink:0;">
           <div class="ex-cell x">Q</div><div class="ex-cell x">U</div><div class="ex-cell x">I</div><div class="ex-cell x">C</div><div class="ex-cell x">K</div>
         </div>
-        <span style="font-family:var(--sans);font-size:13.5px;color:var(--ts);">
+        <span style="font-family:var(--sans);font-size:13.5px;color:var(--tp);">
           &#8592; <span class="col-gray">QUICK</span> has <span class="col-gray">all grey letters</span> which are not apart of the secret word
         </span>
       </div>
 
-      <!-- LUMPS: L=amber, U=gray, M=gray, P=gray, S=amber -->
       <div style="display:flex;align-items:center;gap:16px;">
         <div class="ex-row" style="margin:0;flex-shrink:0;">
           <div class="ex-cell y-a">L</div><div class="ex-cell x">U</div><div class="ex-cell x">M</div><div class="ex-cell x">P</div><div class="ex-cell y-a">S</div>
         </div>
-        <span style="font-family:var(--sans);font-size:13.5px;color:var(--ts);">
-          &#8592; <span class="col-yellow">L<span class="col-gray">UMP</span>S</span> has <span class="col-yellow">two yellow letters</span> which are in the secret word, but in the wrong position
+        <span style="font-family:var(--sans);font-size:13.5px;color:var(--tp);">
+          &#8592; <span class="col-yellow">L</span><span class="col-gray">UMP</span><span class="col-yellow">S</span> has <span class="col-yellow">two yellow letters</span> which are in the secret word, but in the wrong position
         </span>
       </div>
 
-      <!-- SALTY: S=green, A=amber, L=amber, T=green, Y=gray -->
       <div style="display:flex;align-items:center;gap:16px;">
         <div class="ex-row" style="margin:0;flex-shrink:0;">
           <div class="ex-cell g">S</div><div class="ex-cell y-a">A</div><div class="ex-cell y-a">L</div><div class="ex-cell g">T</div><div class="ex-cell x">Y</div>
         </div>
-        <span style="font-family:var(--sans);font-size:13.5px;color:var(--ts);">
+        <span style="font-family:var(--sans);font-size:13.5px;color:var(--tp);">
           &#8592; <span class="col-green">S</span><span class="col-yellow">AL</span><span class="col-green">T</span><span class="col-gray">Y</span> has <span class="col-green">two green letters</span> which are in the secret word <em>AND</em> in the correct position
         </span>
       </div>
 
-      <!-- SLATE: all green -->
       <div style="display:flex;align-items:center;gap:16px;">
         <div class="ex-row" style="margin:0;flex-shrink:0;">
           <div class="ex-cell g">S</div><div class="ex-cell g">L</div><div class="ex-cell g">A</div><div class="ex-cell g">T</div><div class="ex-cell g">E</div>
         </div>
-        <span style="font-family:var(--sans);font-size:13.5px;color:var(--ts);">
+        <span style="font-family:var(--sans);font-size:13.5px;color:var(--tp);">
           &#8592; <span class="col-green">SLATE</span> is the secret word, guessed in 4/6 attempts
         </span>
       </div>
 
     </div>
 
-    <!-- Keyboard + note -->
-    <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
-      <div class="kbd-wrap" style="flex-shrink:0;">
-        <!-- Row 1: Q=dark, W=light, E=green, R=light, T=green, Y=dark, U=dark, I=dark, O=light, P=dark -->
+    <!-- Keyboard + note: side by side, vertically centred -->
+    <div style="display:flex;flex-direction:row;gap:32px;align-items:center;">
+      <div class="kbd-wrap" style="flex-shrink:0;margin:0;">
         <div class="kbd-row">
-          <span class="key used-gray">Q</span>
-          <span class="key">W</span>
-          <span class="key used-green">E</span>
-          <span class="key">R</span>
-          <span class="key used-green">T</span>
-          <span class="key used-gray">Y</span>
-          <span class="key used-gray">U</span>
-          <span class="key used-gray">I</span>
-          <span class="key">O</span>
-          <span class="key used-gray">P</span>
+          <span class="key used-gray">Q</span><span class="key">W</span><span class="key used-green">E</span><span class="key">R</span><span class="key used-green">T</span><span class="key used-gray">Y</span><span class="key used-gray">U</span><span class="key used-gray">I</span><span class="key">O</span><span class="key used-gray">P</span>
         </div>
-        <!-- Row 2: A=green, S=green, D-J=light, K=dark, L=green -->
         <div class="kbd-row">
-          <span class="key used-green">A</span>
-          <span class="key used-green">S</span>
-          <span class="key">D</span>
-          <span class="key">F</span>
-          <span class="key">G</span>
-          <span class="key">H</span>
-          <span class="key">J</span>
-          <span class="key used-gray">K</span>
-          <span class="key used-green">L</span>
+          <span class="key used-green">A</span><span class="key used-green">S</span><span class="key">D</span><span class="key">F</span><span class="key">G</span><span class="key">H</span><span class="key">J</span><span class="key used-gray">K</span><span class="key used-green">L</span>
         </div>
-        <!-- Row 3: C=dark, M=dark, rest=light -->
         <div class="kbd-row">
-          <span class="key wide" style="font-size:10px;">ENTER</span>
-          <span class="key">Z</span>
-          <span class="key">X</span>
-          <span class="key used-gray">C</span>
-          <span class="key">V</span>
-          <span class="key">B</span>
-          <span class="key">N</span>
-          <span class="key used-gray">M</span>
-          <span class="key wide">&#9003;</span>
+          <span class="key wide" style="font-size:10px;">ENTER</span><span class="key">Z</span><span class="key">X</span><span class="key used-gray">C</span><span class="key">V</span><span class="key">B</span><span class="key">N</span><span class="key used-gray">M</span><span class="key wide">&#9003;</span>
         </div>
       </div>
-      <div style="font-family:var(--sans);font-size:13.5px;line-height:1.75;align-self:center;max-width:340px;">
+      <div style="font-family:var(--sans);font-size:13.5px;line-height:1.75;color:var(--tp);">
         <p><strong>Wordle</strong> uses an on-screen keyboard to enter guesses and give feedback. It shows which letters you&#8217;ve used, which are in the word (<span class="col-yellow">yellow</span> or <span class="col-green">green</span>), and which are not (<span class="col-gray">grey</span>).</p>
       </div>
     </div>
+
   </div>
   </div>
 </div>
